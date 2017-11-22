@@ -52,7 +52,7 @@ public class Controller implements Initializable {
     CheckBox checkBox1;
 
     @FXML
-    CheckBox checkBox2;
+    CheckBox checkBox2;x
 
     @FXML
     CheckBox checkBox3;
@@ -132,5 +132,11 @@ public class Controller implements Initializable {
     }
 
     public void btnGenColor(ActionEvent actionEvent) {
+    }
+
+    public void buttonSelectColor_Click_1(ActionEvent actionEvent) {
+    }
+
+    public void buttonSelectDopColor_Click_1(ActionEvent actionEvent) {
     }
 }

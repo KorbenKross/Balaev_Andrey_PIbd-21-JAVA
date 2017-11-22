@@ -32,7 +32,9 @@ public class PasTrain extends Train {
         this.dopColor = dopColor;
     }
 
-    protected Node drawLoc() {
+    @Override
+    protected Node drawLoc()
+    {
         Pane pane = null;
         if (anthen)
         {
@@ -50,14 +52,14 @@ public class PasTrain extends Train {
 
         if (roof)
         {
-           rectangle1 = new Rectangle(startPosX + 10, startPosY + 10, 80, 10);
-           Rectangle rectangle2 = new Rectangle(startPosX + 10, startPosY + 30, 80, 10);
-           rectangle2.setFill(javafx.scene.paint.Paint.valueOf(String.valueOf(dopColor)));
-           pane = new Pane(super.drawLoc(), rectangle1, rectangle2);
-           return pane;
+            rectangle1 = new Rectangle(startPosX + 10, startPosY + 10, 80, 10);
+            Rectangle rectangle2 = new Rectangle(startPosX + 10, startPosY + 30, 80, 10);
+            rectangle2.setFill(javafx.scene.paint.Paint.valueOf(String.valueOf(dopColor)));
+            pane = new Pane(super.drawLoc(), rectangle1, rectangle2);
+            return pane;
 
         }
-        if (lightEngine){}
+        if (lightEngine)
         {
             rectangle3 = new Rectangle(startPosX + 10, startPosY - 5, 70, 10);
             Rectangle rectangle4 = new Rectangle(startPosX + 10, startPosY - 5, 70, 10);
@@ -65,10 +67,6 @@ public class PasTrain extends Train {
             return pane;
         }
 
-
-         pane=new Pane(super.drawLoc(),line1,rectangle1,rectangle3);
-
-        return pane;
-
+        return new Pane(super.drawLoc(),line1,rectangle1,rectangle3);
     }
 }
