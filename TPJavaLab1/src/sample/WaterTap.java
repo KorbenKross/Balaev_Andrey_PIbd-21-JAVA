@@ -11,11 +11,17 @@ public class WaterTap {
         return state;
     }
 
-    public void Wash(Potato p, Carrot c)
+    public void Wash(Potato p)
     {
         if (getState())
         {
             p.setDirty(0);
+        }
+    }
+    public void Wash(Carrot c)
+    {
+        if (getState())
+        {
             c.setDirty(0);
         }
     }
