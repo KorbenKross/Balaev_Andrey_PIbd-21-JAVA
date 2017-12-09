@@ -14,8 +14,6 @@ import javafx.scene.paint.*;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.Paint;
 import javafx.scene.shape.Rectangle;
-
-//import java.awt.*;
 import java.net.URL;
 
 import java.util.ResourceBundle;
