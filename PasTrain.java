@@ -1,9 +1,4 @@
 package sample;
-
-//import javafx.scene.paint.Color;
-
-//import java.awt.Color;
-
 import javafx.scene.Node;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
