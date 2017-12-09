@@ -22,15 +22,6 @@ public class Train extends Locomotive {
     protected int startPosX = a + (int) (Math.random() * b); // Генерация 1-го числа
     protected int startPosY = a + (int) (Math.random() * b);  // Генерация 2-го числа
 
-//    public Train(int maxSpeed, int maxCountPassengers, double weight, javafx.scene.paint.Color color) {
-//        this.MaxSpeed = maxSpeed;
-//        this.MaxCountPassengers = maxCountPassengers;
-//        this.ColorBody = color;
-//        this.Weight = weight;
-//        this.countPassengers = 0;
-//
-//    }
-
     public Train(int maxSpeed, int maxCountPassenger, int maxCapacityGenerator, double weight, javafx.scene.paint.Color color) {
         this.MaxSpeed = maxSpeed;
         this.MaxCountPassengers = maxCountPassenger;
@@ -38,7 +29,6 @@ public class Train extends Locomotive {
         this.ColorBody = color;
         this.Weight = weight;
         this.countPassengers = 0;
-//        super();
     }
 
     @Override
