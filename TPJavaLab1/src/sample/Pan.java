@@ -12,8 +12,6 @@ public class Pan {
     private tomato_paste paste;
     private  boolean readytogo;
 
-//    public bool ReadyToGo { get { return Check(); } }
-
     public void setReadyToGo(boolean readytogo){
         this.readytogo = readytogo;
     }
