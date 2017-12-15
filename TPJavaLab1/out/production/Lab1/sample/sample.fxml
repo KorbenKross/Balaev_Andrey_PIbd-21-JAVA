@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.Spinner?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="590.0" prefWidth="919.0" style="-fx-background-color: #a59ba8;" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+   <children>
+      <Pane layoutX="239.0" layoutY="20.0" prefHeight="316.0" prefWidth="219.0" style="-fx-background-color: b3ffe5;">
+         <children>
+            <RadioButton fx:id="radioButton1_CheckedChanged" layoutX="36.0" layoutY="23.0" mnemonicParsing="false" onAction="#radioButton1_CheckedChanged" text="Кран открыт" />
+            <RadioButton fx:id="radioButton2_CheckedChanged" layoutX="36.0" layoutY="62.0" mnemonicParsing="false" onAction="#radioButton2_CheckedChanged" text="Кран закрыт" />
+            <Button fx:id="washPotato" layoutX="36.0" layoutY="97.0" mnemonicParsing="false" onAction="#washPotato" text="Помыть картошку" />
+            <Button fx:id="washCarrot" layoutX="36.0" layoutY="136.0" mnemonicParsing="false" onAction="#washCarrot" prefHeight="31.0" prefWidth="144.0" text="Помыть морковь" />
+            <Button fx:id="washBow" layoutX="36.0" layoutY="176.0" mnemonicParsing="false" onAction="#washBow" prefHeight="31.0" prefWidth="144.0" text="Помыть лук" />
+            <Button fx:id="washZucchini" layoutX="36.0" layoutY="217.0" mnemonicParsing="false" onAction="#washZucchini" prefHeight="31.0" prefWidth="144.0" text="Помыть кабачок" />
+            <Button fx:id="washTomato" layoutX="36.0" layoutY="256.0" mnemonicParsing="false" onAction="#washTomato" prefHeight="31.0" prefWidth="144.0" text="Помыть помидоры" />
+         </children>
+      </Pane>
+      <Pane layoutX="14.0" layoutY="20.0" prefHeight="316.0" prefWidth="219.0" style="-fx-background-color: b3ffe5;">
+         <children>
+            <Label layoutX="14.0" layoutY="11.0" prefHeight="21.0" prefWidth="68.0" text="Картошка" />
+            <Label layoutX="17.0" layoutY="50.0" prefWidth="68.0" text="Морковь" />
+            <Label layoutX="17.0" layoutY="90.0" prefHeight="21.0" prefWidth="63.0" text="Кабачок" />
+            <Label layoutX="14.0" layoutY="129.0" text="Помидоры" />
+            <Label layoutX="14.0" layoutY="169.0" prefWidth="34.0" text="Лук" />
+            <Label layoutX="14.0" layoutY="210.0" text="Соль" />
+            <Label layoutX="14.0" layoutY="249.0" text="Специи" />
+            <Label layoutX="14.0" layoutY="284.0" text="Томатная паста" />
+            <Spinner fx:id="numericUpDown1" layoutX="129.0" layoutY="6.0" prefHeight="31.0" prefWidth="68.0" />
+            <Spinner fx:id="numericUpDown2" layoutX="129.0" layoutY="45.0" prefHeight="31.0" prefWidth="68.0" />
+            <Spinner fx:id="numericUpDown3" layoutX="129.0" layoutY="85.0" prefHeight="31.0" prefWidth="68.0" />
+            <Spinner fx:id="numericUpDown4" layoutX="129.0" layoutY="124.0" prefHeight="31.0" prefWidth="68.0" />
+            <Spinner fx:id="numericUpDown5" layoutX="129.0" layoutY="164.0" prefHeight="31.0" prefWidth="68.0" />
+            <Spinner fx:id="numericUpDown6" layoutX="129.0" layoutY="205.0" prefHeight="31.0" prefWidth="68.0" />
+            <Spinner fx:id="numericUpDown7" layoutX="129.0" layoutY="244.0" prefHeight="31.0" prefWidth="68.0" />
+            <Spinner fx:id="numericUpDown8" layoutX="129.0" layoutY="279.0" prefHeight="31.0" prefWidth="68.0" />
+         </children>
+      </Pane>
+      <Pane layoutX="14.0" layoutY="343.0" prefHeight="81.0" prefWidth="444.0" style="-fx-background-color: #6cd9b6;">
+         <children>
+            <Button fx:id="btnCleanCarrotBtn" layoutX="14.0" layoutY="25.0" mnemonicParsing="false" onAction="#btnCleanCarrotBtnAction" prefHeight="31.0" prefWidth="162.0" text="Почистить морковь" />
+            <Button fx:id="btnCleanPotatoBtn" layoutX="259.0" layoutY="25.0" mnemonicParsing="false" onAction="#btnCleanPotatoBtnAction" text="Почистить картошку" />
+            <Label layoutX="14.0" layoutY="4.0" text="Нож:" />
+         </children>
+      </Pane>
+      <Pane layoutX="14.0" layoutY="431.0" prefHeight="138.0" prefWidth="219.0" style="-fx-background-color: #b3ffe5;">
+         <children>
+            <Button fx:id="blendBtn" layoutX="92.0" layoutY="8.0" mnemonicParsing="false" onAction="#blendBtnAction" prefHeight="117.0" prefWidth="113.0" text="Измельчить продукты" wrapText="true" />
+            <Label layoutX="14.0" layoutY="4.0" text="Блендер:" />
+            <RadioButton fx:id="radioBtnBlenderOn" layoutX="14.0" layoutY="36.0" mnemonicParsing="false" onAction="#radioBtnBlenderOnAction" text="ВКЛ" />
+            <RadioButton fx:id="radioBtnBlenderOff" layoutX="14.0" layoutY="80.0" mnemonicParsing="false" onAction="#radioBtnBlenderOffAction" text="ВЫКЛ" />
+         </children>
+      </Pane>
+      <Pane layoutX="465.0" layoutY="20.0" prefHeight="204.0" prefWidth="426.0" style="-fx-background-color: #6cd9b6;">
+         <children>
+            <Button fx:id="btnAddWater" layoutX="10.0" layoutY="11.0" mnemonicParsing="false" onAction="#btnAddWaterAction" prefHeight="55.0" prefWidth="68.0" text="Залить воду" wrapText="true" />
+            <Button fx:id="btnAddPotato" layoutX="88.0" layoutY="11.0" mnemonicParsing="false" onAction="#btnAddPotatoAction" prefHeight="55.0" prefWidth="90.0" text="Добавить картошку" wrapText="true" />
+            <Button fx:id="btnAddBow" layoutX="190.0" layoutY="11.0" mnemonicParsing="false" onAction="#btnAddBowAction" prefHeight="55.0" prefWidth="90.0" text="Добавить лук" wrapText="true" />
+            <Button fx:id="btnAddSalt" layoutX="10.0" layoutY="74.0" mnemonicParsing="false" onAction="#btnAddSaltAction" prefHeight="55.0" prefWidth="90.0" text="Добавить соль" wrapText="true" />
+            <Button fx:id="btnAddTomato" layoutX="110.0" layoutY="74.0" mnemonicParsing="false" onAction="#btnAddTomatoAction" prefHeight="55.0" prefWidth="99.0" text="Добавить помидору" wrapText="true" />
+            <Button fx:id="btnAddSpice" layoutX="221.0" layoutY="74.0" mnemonicParsing="false" onAction="#btnAddSpiceAction" prefHeight="55.0" prefWidth="90.0" text="Добавить специи" wrapText="true" />
+            <Button fx:id="btnAddZucchini" layoutX="326.0" layoutY="74.0" mnemonicParsing="false" onAction="#btnAddZucchiniAction" prefHeight="55.0" prefWidth="90.0" text="Добавить кабачки" wrapText="true" />
+            <Button fx:id="btnAddCarrot" layoutX="10.0" layoutY="135.0" mnemonicParsing="false" onAction="#btnAddCarrotAction" prefHeight="55.0" prefWidth="90.0" text="Добавить морковь" wrapText="true" />
+            <Button fx:id="btnAddTomatePaste" layoutX="286.0" layoutY="11.0" mnemonicParsing="false" onAction="#btnAddTomatePasteAction" prefHeight="55.0" prefWidth="130.0" text="Добавить томатную пасту" wrapText="true" />
+         </children>
+      </Pane>
+      <Pane layoutX="465.0" layoutY="231.0" prefHeight="193.0" prefWidth="426.0" style="-fx-background-color: #b3ffe5;">
+         <children>
+            <CheckBox fx:id="checkBoxOven" layoutX="35.0" layoutY="40.0" mnemonicParsing="false" onAction="#checkBoxOvenAction" text="ВКЛ" />
+            <Button fx:id="setOvenBtn" layoutX="35.0" layoutY="69.0" mnemonicParsing="false" onAction="#setOvenBtnAction" prefHeight="75.0" prefWidth="99.0" text="Поставить жаровню" wrapText="true" />
+            <Button fx:id="getReadyBtn" layoutX="164.0" layoutY="69.0" mnemonicParsing="false" onAction="#getReadyBtnAction" prefHeight="75.0" prefWidth="99.0" text="Готовить" wrapText="true" />
+            <Button fx:id="getOutBtn" layoutX="296.0" layoutY="69.0" mnemonicParsing="false" onAction="#getOutBtnAction" prefHeight="75.0" prefWidth="96.0" text="Убрать жаровню" wrapText="true" />
+            <Label layoutX="8.0" text="Духовка:" />
+         </children>
+      </Pane>
+      <Pane layoutX="274.0" layoutY="431.0" prefHeight="138.0" prefWidth="369.0" style="-fx-background-color: #6cd9b6;">
+         <children>
+            <Button fx:id="dropWaterBtn" layoutX="28.0" layoutY="25.0" mnemonicParsing="false" onAction="#dropWaterBtnAction" prefHeight="88.0" prefWidth="130.0" text="Слить воду" wrapText="true" />
+            <Button fx:id="getDishBtn" layoutX="197.0" layoutY="25.0" mnemonicParsing="false" onAction="#getDishBtnAction" prefHeight="88.0" prefWidth="144.0" text="Получить блюдо" wrapText="true" />
+         </children>
+      </Pane>
+      <Label layoutX="6.0" text="Ингридиенты:" />
+      <Label layoutX="222.0" text="Кран:" />
+      <Label layoutX="448.0" text="Жаровня:" />
+   </children>
+</AnchorPane>
