@@ -340,16 +340,6 @@ public class Controller implements Initializable {
         }
         pan.Init(Integer.parseInt(String.valueOf(numericUpDown1.getValue())), Integer.parseInt(String.valueOf(numericUpDown2.getValue())), Integer.parseInt(String.valueOf(numericUpDown3.getValue())), Integer.parseInt(String.valueOf(numericUpDown4.getValue())), Integer.parseInt(String.valueOf(numericUpDown5.getValue())));
 
-//        if ((potatos.length == 0) || (bow.length == 0) || (zucchini.length == 0) || (tomato.length == 0) || (carrot.length == 0))
-//            {
-//                Alert alert = new Alert(Alert.AlertType.ERROR);
-//                alert.setContentText("Недостаточно ингредиентов! Добавьте продукты в блендер.");
-//                alert.showAndWait();
-//                return;
-//            }
-
-//        tomato = new Tomato[Integer.parseInt(String.valueOf(numericUpDown4.getValue()))];
-
         for (int i = 0; i < potatos.length; ++i)
         {
             blender.Cut_potato(potatos[i]);
@@ -369,7 +359,6 @@ public class Controller implements Initializable {
         {
             blender.Cut_zucchini(zucchini[i]);
         }
-//        System.out.println(potatos);
         for (int i = 0; i < tomato.length; ++i)
         {
             blender.Cut_tomato(tomato[i]);
