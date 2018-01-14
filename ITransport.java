@@ -1,5 +1,7 @@
 package sample;
 
+import javafx.scene.Node;
+
 import java.awt.*;
 
 /**
@@ -8,11 +10,12 @@ import java.awt.*;
 public interface ITransport {
     void moveCar();
 
-    void drawCar();
+    Node drawCar();
 
     void setPosition(int x, int y);
 
     void loadPassenger(int count);
 
     int getPassenger();
+
 }
