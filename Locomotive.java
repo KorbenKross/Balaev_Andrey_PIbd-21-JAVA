@@ -1,5 +1,7 @@
 package sample;
 
+import javafx.scene.Node;
+
 import java.awt.*;
 
 /**
@@ -60,7 +62,7 @@ public abstract class Locomotive implements ITransport {
 
     public abstract void moveCar();
 
-    public abstract void drawCar();
+    public abstract Node drawCar();
 
     public void setPosition(int x, int y)
     {

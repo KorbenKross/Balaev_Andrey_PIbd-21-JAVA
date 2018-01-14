@@ -7,6 +7,7 @@ import javafx.scene.shape.Ellipse;
 import javafx.scene.shape.Line;
 import javafx.scene.shape.Rectangle;
 
+//import java.awt.*;
 import java.awt.Color;
 
 /**
@@ -18,8 +19,6 @@ public class Train extends Locomotive {
 
     protected int a = 10;
     protected int b = 200;
-    protected int startPosX = a + (int) (Math.random() * b); // Генерация 1-го числа
-    protected int startPosY = a + (int) (Math.random() * b);  // Генерация 2-го числа
 
     public Train(int maxSpeed, int maxCountPassenger, int maxCapacityGenerator, double weight, javafx.scene.paint.Color color) {
         this.MaxSpeed = maxSpeed;
@@ -28,6 +27,8 @@ public class Train extends Locomotive {
         this.ColorBody = color;
         this.Weight = weight;
         this.countPassengers = 0;
+        this.startPosX = a + (int) (Math.random() * b); // Генерация 1-го числа
+        this.startPosY = a + (int) (Math.random() * b);  // Генерация 2-го числа
     }
 
     @Override
@@ -63,14 +64,15 @@ public class Train extends Locomotive {
 
 
 
-    public void drawCar()
+    public Node drawCar()
     {
-        drawLoc();
-
+        return drawLoc();
     }
 
     protected Node drawLoc()
     {
+        Parking parking = new Parking();
+
         Line line1 = new Line(startPosX + 100, startPosY , startPosX+105, startPosY + 5);
         Line line2 = new Line(startPosX + 10, startPosY + 40, startPosX + 30, startPosY + 40);
         Line line3 = new Line(startPosX + 75, startPosY + 40, startPosX + 95, startPosY + 40);
@@ -85,7 +87,6 @@ public class Train extends Locomotive {
         Rectangle rectangle1=new Rectangle(startPosX + 85, startPosY + 5, 20, 20);
         Rectangle rectangle2=new Rectangle(startPosX + 65, startPosY + 5, 10, 20);
 
-
         Ellipse ellipse1 = new Ellipse(startPosX + 10, startPosY + 30, 20, 20); //красный карандаш
         Ellipse ellipse2 = new Ellipse(startPosX + 25, startPosY+ 30, 15, 15); //красный карандаш
         Ellipse ellipse3 = new Ellipse(startPosX + 60, startPosY + 30, 15, 15); //красный карандаш
@@ -95,11 +96,9 @@ public class Train extends Locomotive {
         ellipse3.setFill(javafx.scene.paint.Paint.valueOf("Red"));
         ellipse4.setFill(javafx.scene.paint.Paint.valueOf("Red"));
 
-
-        Pane pane=new Pane(line1, line2, line3, line4, line5, line6, line7,ellipse2,ellipse4,rectangle1,rectangle2,rectangle3 );
-
+        Pane pane = new Pane(line1, line2, line3, line4, line5, line6, line7,ellipse2,ellipse4,rectangle1,rectangle2,rectangle3);
+        parking.list.add(pane);
         return pane;
-
     }
 
     public void moveCar()
