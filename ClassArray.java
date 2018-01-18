@@ -6,14 +6,12 @@ import java.util.Hashtable;
 import java.util.List;
 
 public class ClassArray<T extends ITransport> {
-//    private ArrayList<T> places = null;
     private T defaultValue;
     private int maxCount;
     private Dictionary<Integer, T> places;
 
     public ClassArray(int sizes, T defVal) {
         defaultValue = null;
-//        places = new ArrayList<T>();
         places = new Hashtable<Integer, T>();
         maxCount = sizes;
     }
