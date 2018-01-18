@@ -15,8 +15,6 @@ import javafx.scene.paint.*;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.Paint;
 import javafx.scene.shape.Rectangle;
-
-//import java.awt.*;
 import java.awt.*;
 import java.net.URL;
 
@@ -116,8 +114,7 @@ public class Controller implements Initializable {
     {
         drawPanel.getChildren().removeAll();
         if (listBoxLevels.getSelectionModel().getSelectedIndex() > -1)
-        {//если выбран один из пуктов в listBox (при старте программы ни один пункт не будет выбран и может возникнуть ошибка, если мы попытаемся обратиться к элементу listBox)
-
+        {
             drawPanel.getChildren().setAll(parking.Draw());
         }
     }
@@ -151,7 +148,6 @@ public class Controller implements Initializable {
         PasTrain train = new PasTrain(100, 4, 240, 1000, color, true, true, true, dopColor);
         inter = train;
         int place = parking.PutCarInParking(train);
-//        drawPanel.getChildren().setAll(parking.Draw());
         Draw();
         Alert alert1 = new Alert(Alert.AlertType.INFORMATION);
         alert1.setContentText("Ваше место: " + place);
@@ -161,7 +157,6 @@ public class Controller implements Initializable {
         Train train = new Train(100, 4, 240, 1000, color);
         inter = train;
         int place = parking.PutCarInParking(train);
-//        drawPanel.getChildren().setAll(parking.Draw());
         Draw();
         Alert alert1 = new Alert(Alert.AlertType.INFORMATION);
         alert1.setContentText("Ваше место: " + place);
@@ -171,7 +166,6 @@ public class Controller implements Initializable {
         if (countTrain.getText() != "") {
             ITransport train = parking.GetCarInParking(Integer.parseInt(countTrain.getText()));
             train.setPosition(5, 50);
-//            drawPanel.getChildren().setAll(parking.Draw());
             Draw();
             dopDrawPanel.getChildren().addAll(train.drawCar());
         }
@@ -181,14 +175,12 @@ public class Controller implements Initializable {
         parking.LevelDown();
         listBoxLevels.getSelectionModel().select(parking.getCurrentLevel());
         Draw();
-//        drawPanel.getChildren().setAll(parking.Draw());
     }
 
     public void lvlUpBtnAction(ActionEvent actionEvent) {
 
         parking.LevelUp();
         listBoxLevels.getSelectionModel().select(parking.getCurrentLevel());
-//        drawPanel.getChildren().setAll(parking.Draw());
         Draw();
     }
 }
