@@ -1,18 +1,21 @@
 package sample;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 
+import javafx.scene.control.Button;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.*;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.Paint;
 import javafx.scene.shape.Rectangle;
-
-//import java.awt.*;
+import java.awt.*;
 import java.net.URL;
 
 import java.util.ResourceBundle;
@@ -24,7 +27,7 @@ public class Controller implements Initializable {
     int maxCountPass;
     double weight;
     int maxCapacityGenerator;
-
+    String[] arrData = new String[6];
     Parking parking = new Parking();
     private ITransport inter;
 
@@ -70,6 +73,8 @@ public class Controller implements Initializable {
     @FXML
     Pane dopDrawPanel;
 
+    @FXML
+    ListView listBoxLevels;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -78,8 +83,16 @@ public class Controller implements Initializable {
         maxSpeed = 200;
         maxCountPass = 50;
         weight = 1000;
+
+        for (int i = 0; i < 6; i++)
+        {
+            arrData[i] = "Уровень" + i;
+        }
+        ObservableList<String> data = FXCollections.observableArrayList(arrData);
+        listBoxLevels.setItems(data);
         drawPanel.getChildren().addAll(parking.Draw());
     }
+
 
     public void btnActLoc(ActionEvent actionEvent) {
         generalColor.setOnAction((ActionEvent t) -> {
@@ -94,6 +107,15 @@ public class Controller implements Initializable {
             drawPanel.getChildren().addAll(train.drawLoc());
         }catch (Exception e){
 
+        }
+    }
+
+    private void Draw()
+    {
+        drawPanel.getChildren().removeAll();
+        if (listBoxLevels.getSelectionModel().getSelectedIndex() > -1)
+        {
+            drawPanel.getChildren().setAll(parking.Draw());
         }
     }
 
@@ -126,7 +148,7 @@ public class Controller implements Initializable {
         PasTrain train = new PasTrain(100, 4, 240, 1000, color, true, true, true, dopColor);
         inter = train;
         int place = parking.PutCarInParking(train);
-        drawPanel.getChildren().setAll(parking.Draw());
+        Draw();
         Alert alert1 = new Alert(Alert.AlertType.INFORMATION);
         alert1.setContentText("Ваше место: " + place);
     }
@@ -135,7 +157,7 @@ public class Controller implements Initializable {
         Train train = new Train(100, 4, 240, 1000, color);
         inter = train;
         int place = parking.PutCarInParking(train);
-        drawPanel.getChildren().setAll(parking.Draw());
+        Draw();
         Alert alert1 = new Alert(Alert.AlertType.INFORMATION);
         alert1.setContentText("Ваше место: " + place);
     }
@@ -143,8 +165,22 @@ public class Controller implements Initializable {
     public void takeBtnActionA(ActionEvent actionEvent) {
         if (countTrain.getText() != "") {
             ITransport train = parking.GetCarInParking(Integer.parseInt(countTrain.getText()));
-            train.setPosition(5, 5);
-            dopDrawPanel.getChildren().setAll(parking.Draw());
+            train.setPosition(5, 50);
+            Draw();
+            dopDrawPanel.getChildren().addAll(train.drawCar());
         }
+    }
+
+    public void lvlDownBtnAction(ActionEvent actionEvent) {
+        parking.LevelDown();
+        listBoxLevels.getSelectionModel().select(parking.getCurrentLevel());
+        Draw();
+    }
+
+    public void lvlUpBtnAction(ActionEvent actionEvent) {
+
+        parking.LevelUp();
+        listBoxLevels.getSelectionModel().select(parking.getCurrentLevel());
+        Draw();
     }
 }
