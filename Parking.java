@@ -8,11 +8,17 @@ import javafx.scene.shape.Line;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
 
+import javax.crypto.*;
+import javax.crypto.spec.DESedeKeySpec;
+import java.io.*;
+import java.security.InvalidKeyException;
+import java.security.NoSuchAlgorithmException;
+import java.security.spec.InvalidKeySpecException;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
-public class Parking {
+public class Parking implements Serializable {
     List<ClassArray<ITransport>> parkingStages;
     public LinkedList<javafx.scene.Node> list= new LinkedList<Node>();
     int placceSizeWidth = 210;
@@ -25,9 +31,6 @@ public class Parking {
         return currentLevel;
     }
 
-    public int GetCurrentLevel() {
-        return currentLevel;
-    }
 
     public Parking(){
         parkingStages = new ArrayList<ClassArray<ITransport>>();
@@ -64,7 +67,6 @@ public class Parking {
             ITransport train = parkingStages.get(currentLevel).getTrain(i);
             if (train != null) {
                 train.setPosition(5 + i / 5 * placceSizeWidth + 5, i % 5 * placeSizeHeight + 30);
-//                train.drawCar();
                 list.add(train.drawCar());
             }
         }
@@ -84,5 +86,34 @@ public class Parking {
             }
             list.add(new Line(i * placceSizeWidth, 0, i * placceSizeWidth, 400));
         }
+    }
+
+    public boolean save(String fileName) throws IOException {
+        FileOutputStream save = null;
+        try {
+            save = new FileOutputStream(fileName);
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+        ObjectOutputStream obSave = new ObjectOutputStream(save);
+        System.out.println(parkingStages.get(0).getTrain(0).getInfo());
+        obSave.writeObject(parkingStages);
+        return true;
+    }
+
+    public boolean load(String filename) {
+        try {
+            ObjectInputStream obLoad = new ObjectInputStream(new BufferedInputStream(new FileInputStream(filename)));
+            try {
+                parkingStages = ( ArrayList<ClassArray<ITransport>>) obLoad.readObject();
+                System.out.println(parkingStages.get(0).getTrain(0).getInfo());
+            } catch (ClassNotFoundException e) {
+                e.printStackTrace();
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        return true;
     }
 }

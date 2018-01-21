@@ -30,6 +30,8 @@ public abstract class Locomotive implements ITransport {
     protected Color ColorBody1;
     protected Color ColorBody2;
 
+    public abstract String getInfo();
+
     public void setMaxCountPassengers(int pas) {
         this.pas = pas;
     }
