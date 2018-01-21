@@ -1,14 +1,20 @@
 package sample;
+
 import javafx.scene.Node;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Line;
 import javafx.scene.shape.Rectangle;
 
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.io.Serializable;
+
 /**
  * Created by dns on 20.10.2017.
  */
-public class PasTrain extends Train {
+public class PasTrain extends Train implements Serializable {
     private boolean lightEngine;
     private boolean anthen;
     private boolean roof;
@@ -18,9 +24,8 @@ public class PasTrain extends Train {
 
     private Color dopColor;
 
-    public PasTrain(int maxSpeed, int maxCountPassenger, int maxCapacityGenerator, double weight, javafx.scene.paint.Color color, boolean lightEngine, boolean anthen, boolean roof, Color dopColor)
-    {
-        super(maxSpeed, maxCountPassenger, maxCapacityGenerator,weight, color);
+    public PasTrain(int maxSpeed, int maxCountPassenger, int maxCapacityGenerator, double weight, javafx.scene.paint.Color color, boolean lightEngine, boolean anthen, boolean roof, Color dopColor) {
+        super(maxSpeed, maxCountPassenger, maxCapacityGenerator, weight, color);
         this.lightEngine = lightEngine;
         this.anthen = anthen;
         this.roof = roof;
@@ -29,11 +34,9 @@ public class PasTrain extends Train {
     }
 
     @Override
-    protected Node drawLoc()
-    {
+    protected Node drawLoc() {
         Pane pane = null;
-        if (anthen)
-        {
+        if (anthen) {
             line1 = new Line(startPosX, startPosY - 30, startPosX + 30, startPosY - 30);
             Line line2 = new Line(startPosX, startPosY - 30, startPosX + 20, startPosY);
             Line line3 = new Line(startPosX + 30, startPosY - 30, startPosX + 20, startPosY);
@@ -46,8 +49,7 @@ public class PasTrain extends Train {
             return pane;
         }
 
-        if (roof)
-        {
+        if (roof) {
             rectangle1 = new Rectangle(startPosX + 10, startPosY + 10, 80, 10);
             Rectangle rectangle2 = new Rectangle(startPosX + 10, startPosY + 30, 80, 10);
             rectangle2.setFill(javafx.scene.paint.Paint.valueOf(String.valueOf(ColorBody2)));
@@ -55,14 +57,29 @@ public class PasTrain extends Train {
             return pane;
 
         }
-        if (lightEngine)
-        {
+        if (lightEngine) {
             rectangle3 = new Rectangle(startPosX + 10, startPosY - 5, 70, 10);
             Rectangle rectangle4 = new Rectangle(startPosX + 10, startPosY - 5, 70, 10);
             pane = new Pane(super.drawLoc(), rectangle3, rectangle4);
             return pane;
         }
 
-        return new Pane(super.drawLoc(),line1,rectangle1,rectangle3);
+        return new Pane(super.drawLoc(), line1, rectangle1, rectangle3);
+    }
+
+    private void writeObject(ObjectOutputStream s) throws IOException {
+        s.defaultWriteObject();
+        s.writeObject(ColorBody1.toString());
+    }
+
+    private void readObject(ObjectInputStream s) throws IOException, ClassNotFoundException {
+        s.defaultReadObject();
+        ColorBody1 = Color.web((String)s.readObject());
+        ColorBody2 = Color.web((String)s.readObject());
+    }
+    @Override
+    public String getInfo() {
+        return MaxSpeed + ";" + MaxCapacityGenerator + ";" + MaxCountPassengers + ";" + Weight + ";" + ColorBody1 + ";" + true + ";" + false + ";" + true + ";" + ColorBody2;
+
     }
 }

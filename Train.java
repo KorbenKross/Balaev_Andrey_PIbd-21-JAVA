@@ -7,13 +7,16 @@ import javafx.scene.shape.Ellipse;
 import javafx.scene.shape.Line;
 import javafx.scene.shape.Rectangle;
 
-//import java.awt.*;
-import java.awt.Color;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.io.Serializable;
+import java.util.Random;
 
 /**
  * Created by dns on 20.10.2017.
  */
-public class Train extends Locomotive {
+public class Train extends Locomotive implements Serializable {
 
 
 
@@ -107,5 +110,20 @@ public class Train extends Locomotive {
     {
         startPosX += (MaxSpeed * 50 / (float)Weight) / (countPassengers == 0 ? 1 : countPassengers);
         drawCar();
+    }
+
+    @Override
+    public String getInfo() {
+        return MaxSpeed + ";" + MaxCapacityGenerator + ";" + MaxCountPassengers + ";" + Weight + ";" + ColorBody1;
+    }
+
+    private void writeObject(ObjectOutputStream s) throws IOException {
+        s.defaultWriteObject();
+        s.writeObject(ColorBody1.toString());
+    }
+
+    private void readObject(ObjectInputStream s) throws IOException, ClassNotFoundException {
+        s.defaultReadObject();
+        ColorBody1 = Color.web((String)s.readObject());
     }
 }

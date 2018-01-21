@@ -1,14 +1,15 @@
 package sample;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Dictionary;
 import java.util.Hashtable;
 import java.util.List;
 
-public class ClassArray<T extends ITransport> {
+public class ClassArray<T extends ITransport>  implements Serializable {
     private T defaultValue;
     private int maxCount;
-    private Dictionary<Integer, T> places;
+    private Hashtable<Integer, T> places;
 
     public ClassArray(int sizes, T defVal) {
         defaultValue = null;

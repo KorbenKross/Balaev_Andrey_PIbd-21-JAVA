@@ -21,7 +21,11 @@ import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
+import javax.swing.*;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.ObjectOutputStream;
 import java.net.URL;
 
 import java.util.ResourceBundle;
@@ -106,7 +110,6 @@ public class Controller implements Initializable {
         FormController formController = new FormController();
         if (formController.r == true) {
             System.out.println(formController.getR() + "e");
-            System.out.println("Соси");
             int place = parking.PutCarInParking(formController.getItransport());
             Draw();
             Alert alert1 = new Alert(Alert.AlertType.INFORMATION);
@@ -240,5 +243,30 @@ public class Controller implements Initializable {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    public void saveBtnAction(ActionEvent actionEvent) {
+        JFileChooser filesave = new JFileChooser();
+
+        if (filesave.showDialog(null, "Save") == JFileChooser.APPROVE_OPTION) {
+            try {
+                if (parking.save(filesave.getSelectedFile().getPath()))
+                    if (filesave.getSelectedFile().getPath() != null)
+                        System.out.println("Good");
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+
+    }
+
+    public void loadBtnAction(ActionEvent actionEvent) {
+        JFileChooser fileopen = new JFileChooser();
+        if (fileopen.showDialog(null, "Open") == JFileChooser.APPROVE_OPTION) {
+            if (parking.load(fileopen.getSelectedFile().getPath()))
+                if (fileopen.getSelectedFile().getPath() != null)
+                    System.out.println("Good");
+        }
+        Draw();
     }
 }
