@@ -24,7 +24,8 @@ public class PasTrain extends Train {
         this.lightEngine = lightEngine;
         this.anthen = anthen;
         this.roof = roof;
-        this.dopColor = dopColor;
+        this.setColorBody2(dopColor);
+        this.ColorBody2 = dopColor;
     }
 
     @Override
@@ -49,7 +50,7 @@ public class PasTrain extends Train {
         {
             rectangle1 = new Rectangle(startPosX + 10, startPosY + 10, 80, 10);
             Rectangle rectangle2 = new Rectangle(startPosX + 10, startPosY + 30, 80, 10);
-            rectangle2.setFill(javafx.scene.paint.Paint.valueOf(String.valueOf(dopColor)));
+            rectangle2.setFill(javafx.scene.paint.Paint.valueOf(String.valueOf(ColorBody2)));
             pane = new Pane(super.drawLoc(), rectangle1, rectangle2);
             return pane;
 
