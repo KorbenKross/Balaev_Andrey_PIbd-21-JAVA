@@ -69,6 +69,16 @@ public class Train extends Locomotive {
         return drawLoc();
     }
 
+    @Override
+    public void setMainColor(Color color) {
+
+    }
+
+    @Override
+    public void setDopColor(Color color) {
+
+    }
+
     protected Node drawLoc()
     {
         Parking parking = new Parking();

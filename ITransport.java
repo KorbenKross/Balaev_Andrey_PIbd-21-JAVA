@@ -18,4 +18,8 @@ public interface ITransport {
 
     int getPassenger();
 
+    void setMainColor(Color color);
+
+    void setDopColor(Color color);
+
 }

@@ -25,6 +25,10 @@ public class PasTrain extends Train {
         this.anthen = anthen;
         this.roof = roof;
         this.dopColor = dopColor;
+        this.setColorBody1(color);
+        this.setColorBody2(dopColor);
+        this.ColorBody1 = color;
+        this.ColorBody2 = dopColor;
     }
 
     @Override
