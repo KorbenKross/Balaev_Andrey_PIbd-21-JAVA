@@ -5,11 +5,13 @@
 <?import javafx.scene.control.ColorPicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="547.0" prefWidth="838.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="512.0" prefWidth="838.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
    <children>
       <ColorPicker fx:id="doColor" layoutX="515.0" layoutY="440.0" onAction="#btnDopColor" prefHeight="31.0" prefWidth="92.0" visible="false" />
       <ColorPicker fx:id="generalColor" layoutX="404.0" layoutY="440.0" onAction="#btnGenColor" prefHeight="31.0" prefWidth="92.0" visible="false" />
@@ -34,6 +36,12 @@
       <ListView fx:id="listBoxLevels" layoutX="24.0" layoutY="86.0" prefHeight="200.0" prefWidth="200.0" />
       <Button fx:id="lvlDownBtn" layoutX="24.0" layoutY="314.0" mnemonicParsing="false" onAction="#lvlDownBtnAction" prefHeight="86.0" prefWidth="84.0" text="&lt;&lt;" />
       <Button fx:id="lvlUpBtn" layoutX="141.0" layoutY="314.0" mnemonicParsing="false" onAction="#lvlUpBtnAction" prefHeight="86.0" prefWidth="84.0" text="&gt;&gt;" />
-      <Button fx:id="superAddBtn" layoutX="34.0" layoutY="29.0" mnemonicParsing="false" onAction="#superAddBtnAction" text="ДОБАВИТЬ!" />
+      <Button fx:id="superAddBtn" layoutX="40.0" layoutY="44.0" mnemonicParsing="false" onAction="#superAddBtnAction" text="ДОБАВИТЬ!" />
+      <MenuButton layoutY="-1.0" mnemonicParsing="false" text="File">
+        <items>
+          <MenuItem fx:id="saveBtn" mnemonicParsing="false" onAction="#saveBtnAction" text="Сохранить" />
+          <MenuItem fx:id="loadBtn" mnemonicParsing="false" onAction="#loadBtnAction" text="Загрузить" />
+        </items>
+      </MenuButton>
    </children>
 </AnchorPane>

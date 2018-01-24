@@ -22,4 +22,6 @@ public interface ITransport {
 
     void setDopColor(Color color);
 
+    String getInfo();
+
 }
