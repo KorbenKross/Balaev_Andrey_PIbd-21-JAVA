@@ -24,7 +24,8 @@ public class Train extends Locomotive {
         this.MaxSpeed = maxSpeed;
         this.MaxCountPassengers = maxCountPassenger;
         this.MaxCapacityGenerator = maxCapacityGenerator;
-        this.ColorBody = color;
+        this.setColorBody1(color);
+        this.ColorBody1 = color;
         this.Weight = weight;
         this.countPassengers = 0;
         this.startPosX = a + (int) (Math.random() * b); // Генерация 1-го числа
@@ -69,6 +70,7 @@ public class Train extends Locomotive {
         return drawLoc();
     }
 
+
     protected Node drawLoc()
     {
         Parking parking = new Parking();
@@ -82,7 +84,7 @@ public class Train extends Locomotive {
         Line line7 = new Line(startPosX, startPosY + 25, startPosX + 100, startPosY + 25);
 
         Rectangle rectangle3 = new Rectangle(startPosX, startPosY, 100, 30);
-        rectangle3.setFill(javafx.scene.paint.Paint.valueOf(String.valueOf(ColorBody)));
+        rectangle3.setFill(javafx.scene.paint.Paint.valueOf(String.valueOf(ColorBody1)));
 
         Rectangle rectangle1=new Rectangle(startPosX + 85, startPosY + 5, 20, 20);
         Rectangle rectangle2=new Rectangle(startPosX + 65, startPosY + 5, 10, 20);
