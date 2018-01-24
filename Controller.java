@@ -106,7 +106,6 @@ public class Controller implements Initializable {
         FormController formController = new FormController();
         if (formController.r == true) {
             System.out.println(formController.getR() + "e");
-            System.out.println("Соси");
             int place = parking.PutCarInParking(formController.getItransport());
             Draw();
             Alert alert1 = new Alert(Alert.AlertType.INFORMATION);
