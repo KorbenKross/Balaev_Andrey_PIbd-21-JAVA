@@ -34,5 +34,6 @@
       <ListView fx:id="listBoxLevels" layoutX="24.0" layoutY="86.0" prefHeight="200.0" prefWidth="200.0" />
       <Button fx:id="lvlDownBtn" layoutX="24.0" layoutY="314.0" mnemonicParsing="false" onAction="#lvlDownBtnAction" prefHeight="86.0" prefWidth="84.0" text="&lt;&lt;" />
       <Button fx:id="lvlUpBtn" layoutX="141.0" layoutY="314.0" mnemonicParsing="false" onAction="#lvlUpBtnAction" prefHeight="86.0" prefWidth="84.0" text="&gt;&gt;" />
+      <Button fx:id="superAddBtn" layoutX="34.0" layoutY="29.0" mnemonicParsing="false" onAction="#superAddBtnAction" text="ДОБАВИТЬ!" />
    </children>
 </AnchorPane>
